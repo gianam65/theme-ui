@@ -1,0 +1,29 @@
+.default__layout {
+  width: 100%;
+  display: flex;
+  overflow-x: hidden;
+  height: 100vh;
+  overflow-y: auto;
+  .side__menu-container {
+    width: 30%;
+    height: 100%;
+    padding: 8px;
+  }
+  .main__content {
+    flex: 1;
+    padding: 24px;
+    .main__content-children {
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .default__layout {
+    .side__menu-container {
+    }
+    .main__content {
+      padding: 8px;
+    }
+  }
+}
