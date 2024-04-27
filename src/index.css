@@ -25,7 +25,8 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  /* background: #fff; */
+  /* display: flex; */
 }
 
 h1 {
@@ -63,4 +64,32 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+.cs-form-input input{
+    font-size: 16px !important;
+    height: 50px;
+    padding: 0  20px !important;
+    line-height: 160px !important;
+}
+.cs-button{
+  width: 100%;
+    height: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    /*  */
+    /* background: var(--default-color); */
+    color: #ffffff;
+    line-height: 120%;
+    border-radius: 20px 0 20px 0;
+    outline: none !important;
+}
+.cs-button:hover{
+  background: #ffffff !important;
+  color: #1677ff !important;
+}
+.cs-logo{
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
 }
