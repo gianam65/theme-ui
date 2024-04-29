@@ -83,6 +83,7 @@ button:focus-visible {
     line-height: 120%;
     border-radius: 20px 0 20px 0;
     outline: none !important;
+    background: #1677ff !important;
 }
 .cs-button:hover{
   background: #ffffff !important;
