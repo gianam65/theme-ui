@@ -1,13 +1,17 @@
 import "./app-header.scss";
+import { Link } from "react-router-dom";
+import useImg from "../../assets/images/user.svg";
+import cartIcon from "../../assets/images/cart.svg";
+import routes from "../../config/routes";
 
 const AppHeader = () => {
   return (
     <div>
       <nav className="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark">
         <div className="container">
-          <a className="navbar-brand" href="index.html">
+          <Link to="/" className="navbar-brand">
             Furni<span>.</span>
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,46 +26,31 @@ const AppHeader = () => {
           <div className="collapse navbar-collapse" id="navbarsFurni">
             <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
               <li className="nav-item ">
-                <a className="nav-link" href="index.html">
-                  Home
-                </a>
+                <Link className="nav-link" to={routes.home}>
+                  Trang chủ
+                </Link>
               </li>
               <li>
-                <a className="nav-link" href="shop.html">
-                  Shop
-                </a>
+                <Link className="nav-link" to={routes.products}>
+                  Sản phẩm
+                </Link>
               </li>
               <li>
-                <a className="nav-link" href="about.html">
-                  About us
-                </a>
-              </li>
-              <li>
-                <a className="nav-link" href="services.html">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a className="nav-link" href="blog.html">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a className="nav-link" href="contact.html">
-                  Contact us
-                </a>
+                <Link className="nav-link" to={routes.management}>
+                  Quản lý cửa hàng
+                </Link>
               </li>
             </ul>
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
               <li>
-                <a className="nav-link" href="#">
-                  <img src="images/user.svg" />
-                </a>
+                <Link className="nav-link" to={routes.profile}>
+                  <img src={useImg} />
+                </Link>
               </li>
               <li>
-                <a className="nav-link" href="cart.html">
-                  <img src="images/cart.svg" />
-                </a>
+                <Link className="nav-link" to={routes.cart}>
+                  <img src={cartIcon} />
+                </Link>
               </li>
             </ul>
           </div>
