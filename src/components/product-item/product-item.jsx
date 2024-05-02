@@ -1,5 +1,7 @@
 import './product-item.scss';
 import defaultImage from '../../assets/images/product-item.png'
+import cartIcon from "../../assets/images/cart.svg";
+
 const ProductItem = ({
     slug, name, cate, selling_price, unchanged_price, image_src
 }) => {
@@ -31,7 +33,7 @@ const ProductItem = ({
                         </div>
                     </div>
                     <button className='cs-button'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                             <g clip-path="url(#clip0_944_7576)">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M5.83203 17.5C5.83203 16.5796 6.57822 15.8334 7.4987 15.8334C8.41917 15.8334 9.16537 16.5796 9.16537 17.5C9.16537 18.4205 8.41917 19.1667 7.4987 19.1667C6.57822 19.1667 5.83203 18.4205 5.83203 17.5Z"></path>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15 17.5C15 16.5796 15.7462 15.8334 16.6667 15.8334C17.5871 15.8334 18.3333 16.5796 18.3333 17.5C18.3333 18.4205 17.5871 19.1667 16.6667 19.1667C15.7462 19.1667 15 18.4205 15 17.5Z"></path>
@@ -42,7 +44,8 @@ const ProductItem = ({
                                     <rect width="20" height="20" fill="white"></rect>
                                 </clipPath>
                             </defs>
-                        </svg>
+                        </svg> */}
+                        <img src={cartIcon} />
                         <span>Buy now</span>
                     </button>
                 </div>
