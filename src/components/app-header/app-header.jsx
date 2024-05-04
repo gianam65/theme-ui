@@ -3,8 +3,19 @@ import { Link } from "react-router-dom";
 import useImg from "../../assets/images/user.svg";
 import cartIcon from "../../assets/images/cart.svg";
 import routes from "../../config/routes";
+import { Dropdown } from "antd";
 
 const AppHeader = () => {
+  const items = [
+    {
+      key: "1",
+      label: <Link to={routes.profile}>Thông tin cá nhân</Link>,
+    },
+    {
+      key: "2",
+      label: <Link to={routes.history}>Lịch sử mua hàng</Link>,
+    },
+  ];
   return (
     <div>
       <nav className="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark">
@@ -43,9 +54,16 @@ const AppHeader = () => {
             </ul>
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
               <li>
-                <Link className="nav-link" to={routes.profile}>
-                  <img src={useImg} />
-                </Link>
+                <Dropdown
+                  menu={{
+                    items,
+                  }}
+                  placement="bottom"
+                >
+                  <div className="nav-link">
+                    <img src={useImg} />
+                  </div>
+                </Dropdown>
               </li>
               <li>
                 <Link className="nav-link" to={routes.cart}>
