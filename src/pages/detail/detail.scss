@@ -1,3 +1,48 @@
-.bacsic__info-left button{
-    z-index: 999;
+.bacsic__info-left button {
+  z-index: 999;
 }
+.bacsic__info-left .item-img img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+.bacsic__info-left .item-img {
+  background-color: #fff;
+}
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    width: 25px;
+    height: 65px;
+    transform: translate(0, -50%);
+    z-index: 999;
+    cursor: pointer;
+    display: flex;
+    background: #605b5b66;
+    justify-content: flex-end;
+    align-items: center;
+}
+.custom-prev-arrow {
+  left: -25px;
+}
+.custom-next-arrow {
+    right: -25px;
+    justify-content: flex-start;
+
+}
+.arrow-prev {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 7px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.arrow-next {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 7px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }

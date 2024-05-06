@@ -8,6 +8,23 @@ import Image4 from '../../assets/images/product-3.png';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+const CustomPrevArrow = (props) => {
+  const { onClick } = props;
+  return (
+    <div className="custom-arrow custom-prev-arrow" onClick={onClick}>
+      <div className="arrow-prev"></div>
+    </div>
+  );
+}
+
+const CustomNextArrow = (props) => {
+  const { onClick } = props;
+  return (
+    <div className="custom-arrow custom-next-arrow" onClick={onClick}>
+      <div className="arrow-next"></div>
+    </div>
+  );
+};
 const DetailPage = () => {
   const settings = {
     dots: true,
@@ -15,8 +32,11 @@ const DetailPage = () => {
     infinite: false,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />
   };
+
   return (
     <div id="product__detail">
       <div className="container">
@@ -24,16 +44,16 @@ const DetailPage = () => {
           <Row>
             <Col span={12} className="bacsic__info-left">
               <Slider {...settings}>
-                <div>
+                <div className="item-img">
                   <img src={Image1} alt="" />
                 </div>
-                <div>
+                <div className="item-img">
                   <img src={Image2} alt="" />
                 </div>
-                <div>
+                <div className="item-img">
                   <img src={Image3} alt="" />
                 </div>
-                <div>
+                <div className="item-img">
                   <img src={Image4} alt="" />
                 </div>
               </Slider>
