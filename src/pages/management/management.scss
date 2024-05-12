@@ -1,0 +1,35 @@
+.management-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+    .header-left{
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        .cs-button{
+            width: 60px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 400;
+            text-transform: unset;
+            border-radius: 0;
+            cursor: pointer;
+            border: 1px solid #1677ff !important;
+            transition: all .5s;
+        }
+    }
+}
+.management-table{
+    .edit{
+        padding-right: 10px;
+        color: #1677ff;
+        border-right: 1px solid #ccc;
+    }
+    .delete{
+        color: #ff1616;
+    }
+}
