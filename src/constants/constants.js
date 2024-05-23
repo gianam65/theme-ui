@@ -7,3 +7,4 @@ export const PROFILE_PAGE_LINK = "/thong-tin-ca-nhan";
 export const HISTORY_ORDER_LINK = "/lich-su-mua-hang";
 export const MANAGEMENT_SHOP_LINK = "/quan-ly-cua-hang";
 export const PRODUCTS_PAGE_LINK = "/san-pham";
+export const PAYMENT_PAGE_LINK = "/thanh-toan";

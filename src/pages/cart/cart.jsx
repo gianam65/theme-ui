@@ -1,5 +1,7 @@
 import "./cart.scss";
 import defaultProduct from "../../assets/images/bowl-2.png";
+import { Link } from "react-router-dom";
+import routes from "../../config/routes";
 
 const CartPage = () => {
   return (
@@ -119,9 +121,9 @@ const CartPage = () => {
                   </div>
                   <div className="row">
                     <div className="col-md-12">
-                      <button className="btn btn-black btn-lg py-3 btn-block">
+                    <Link to={routes.payment} className="btn btn-black btn-lg py-3 btn-block">
                         Thanh toán
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

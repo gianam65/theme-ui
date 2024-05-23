@@ -8,6 +8,7 @@ import {
   HISTORY_ORDER_LINK,
   MANAGEMENT_SHOP_LINK,
   PRODUCTS_PAGE_LINK,
+  PAYMENT_PAGE_LINK,
 } from "../constants/constants.js";
 
 const routes = {
@@ -20,6 +21,7 @@ const routes = {
   history: HISTORY_ORDER_LINK,
   management: MANAGEMENT_SHOP_LINK,
   products: PRODUCTS_PAGE_LINK,
+  payment: PAYMENT_PAGE_LINK,
 };
 
 export default routes;

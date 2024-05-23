@@ -8,7 +8,7 @@ import ProfilePage from "../pages/profile";
 import CartPage from "../pages/cart";
 import DetailPage from "../pages/detail";
 import config from "../config";
-
+import PaymentPage from "../pages/payment/payment";
 const publicRoutes = [
   { path: config.routes.home, component: HomePage },
   { path: config.routes.login, component: LoginPage, isLogin: true },
@@ -19,6 +19,7 @@ const publicRoutes = [
   { path: config.routes.profile, component: ProfilePage },
   { path: config.routes.cart, component: CartPage },
   { path: config.routes.detail, component: DetailPage },
+  { path: config.routes.payment, component: PaymentPage },
 ];
 
 const privateRoutes = [];
