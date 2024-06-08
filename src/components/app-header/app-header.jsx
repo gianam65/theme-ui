@@ -36,7 +36,7 @@ const AppHeader = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarsFurni">
             <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-              <li className="nav-item ">
+              <li className="nav-item" onClick={() => {}}>
                 <Link className="nav-link" to={routes.home}>
                   Trang chủ
                 </Link>
