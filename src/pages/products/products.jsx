@@ -15,7 +15,45 @@ const ProductsPage = () => {
       setLoading(true);
       const response = await httpGet("/product/get");
       setLoading(false);
-      setProducts(response?.content || []);
+      setProducts(
+        response?.content || [
+          {
+            id: 1,
+            product_name: "Nam Gia",
+            import_price: 8000,
+            export_price: 10000,
+            product_description: "Nam dep trai",
+            image_url:
+              "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg",
+            quantity: 10,
+            createAt: "2008-11-11T00:00:00",
+            updateAt: null,
+            category: {
+              id: 1,
+              index: null,
+              name: "Nam",
+              description: "Nam dep trai",
+            },
+            brand: {
+              id: 1,
+              index: null,
+              name: "nam",
+              description: "Nam",
+            },
+            color: {
+              id: 1,
+              index: null,
+              name: "nam",
+              description: "red",
+            },
+            size: {
+              id: 1,
+              size_name: "Nam",
+            },
+            status: null,
+          },
+        ],
+      );
     };
     fetchProduct();
   }, [setLoading]);
