@@ -18,7 +18,7 @@ const publicRoutes = [
   { path: config.routes.management, component: ManagementPage },
   { path: config.routes.profile, component: ProfilePage },
   { path: config.routes.cart, component: CartPage },
-  { path: config.routes.detail, component: DetailPage },
+  { path: `${config.routes.detail}/:id`, component: DetailPage },
   { path: config.routes.payment, component: PaymentPage },
 ];
 

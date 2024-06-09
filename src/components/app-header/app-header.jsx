@@ -1,11 +1,24 @@
+/* eslint-disable react/prop-types */
 import "./app-header.scss";
-import { Link } from "react-router-dom";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import useImg from "../../assets/images/user.svg";
 import cartIcon from "../../assets/images/cart.svg";
 import routes from "../../config/routes";
 import { Dropdown } from "antd";
 
 const AppHeader = () => {
+  const CustomLink = ({ children, to }) => {
+    const resolved = useResolvedPath(to);
+    const match = useMatch({ path: resolved.pathname, end: true });
+    return (
+      <li className={match ? "active" : ""}>
+        <Link className="nav-link" to={to}>
+          {children}
+        </Link>
+      </li>
+    );
+  };
+
   const items = [
     {
       key: "1",
@@ -36,21 +49,9 @@ const AppHeader = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarsFurni">
             <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-              <li className="nav-item" onClick={() => {}}>
-                <Link className="nav-link" to={routes.home}>
-                  Trang chủ
-                </Link>
-              </li>
-              <li>
-                <Link className="nav-link" to={routes.products}>
-                  Sản phẩm
-                </Link>
-              </li>
-              <li>
-                <Link className="nav-link" to={routes.management}>
-                  Quản lý cửa hàng
-                </Link>
-              </li>
+              <CustomLink to={routes.home}>Trang chủ</CustomLink>
+              <CustomLink to={routes.products}>Sản phẩm</CustomLink>
+              <CustomLink to={routes.management}>Quản lý cửa hàng</CustomLink>
             </ul>
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
               <li>

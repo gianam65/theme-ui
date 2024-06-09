@@ -10,3 +10,18 @@ export function generateRandomId(length = 8) {
 
   return randomId;
 }
+
+export function formatCurrency(value) {
+  if (!value) return "0 ₫";
+  const currency = Number(value);
+  return (
+    new Intl.NumberFormat("vi-VN", {
+      style: "currency",
+      currency: "VND",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    })
+      .format(currency)
+      .replace("₫", "") + "₫"
+  );
+}
