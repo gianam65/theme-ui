@@ -1,14 +1,15 @@
 import "./login.scss";
 
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button, Checkbox, notification } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import loginLeftImage from "../../assets/images/login_left_img.jpg";
 import loginLogo from "../../assets/images/logo-theme.jpg";
 import CustomLogo from "../../components/custom-logo/custom-logo";
 import { httpPost } from "../../services/request";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { userTokenState } from "../../recoil/store/app";
 import { useSetRecoilState } from "recoil";
+import routes from "../../config/routes";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,6 +22,8 @@ const Login = () => {
     if (response?.data) {
       navigate("/");
       setToken(response?.data?.token);
+    } else {
+      notification.error({ message: "Có lỗi xảy ra, vui lòng thử lại sau!" });
     }
   };
   const onFinishFailed = (errorInfo) => {
@@ -97,17 +100,29 @@ const Login = () => {
                   placeholder="Nhập mật khẩu"
                 />
               </Form.Item>
-
-              <Form.Item
-                name="remember"
-                valuePropName="checked"
-                wrapperCol={{
-                  // offset: 24,
-                  span: 24,
-                }}
-              >
-                <Checkbox>Ghi nhớ đăng nhập</Checkbox>
-              </Form.Item>
+              <div className="flex-wrap">
+                <Form.Item
+                  name="remember"
+                  valuePropName="checked"
+                  wrapperCol={{
+                    // offset: 24,
+                    span: 24,
+                  }}
+                >
+                  <Checkbox>Ghi nhớ đăng nhập</Checkbox>
+                </Form.Item>
+                <Form.Item
+                  name="remember"
+                  valuePropName="checked"
+                  wrapperCol={{
+                    // offset: 24,
+                    span: 24,
+                  }}
+                >
+                  Bạn chưa có tài khoản, hãy
+                  <Link to={`${routes.register}`}> đăng ký ngay </Link>
+                </Form.Item>
+              </div>
 
               <Form.Item
                 wrapperCol={{
