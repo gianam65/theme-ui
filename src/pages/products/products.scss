@@ -16,7 +16,7 @@
 }
 .flex-box {
   display: grid; /* or display: flex */
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 50px 30px;
 }
 .product_bottom{
