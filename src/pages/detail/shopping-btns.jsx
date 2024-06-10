@@ -3,10 +3,10 @@ const ShoppingBtns = () => {
     return (
         <div className="shopping-btns">
             <div className="add-to-cart cs-button">
-                add to cart
+                Thêm vào giỏ hàng
             </div>
             <div className="buy-now cs-button">
-                buy now
+                Mua ngay
             </div>
         </div>
     )

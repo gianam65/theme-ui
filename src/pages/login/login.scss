@@ -31,5 +31,9 @@
         }
     }
   }
-
+.flex-wrap{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
 }

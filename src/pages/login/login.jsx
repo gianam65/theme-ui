@@ -5,6 +5,8 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import loginLeftImage from '../../assets/images/login_left_img.jpg'
 import loginLogo from '../../assets/images/logo-theme.jpg'
 import loginBackground from '../../assets/images/login-bg.png'
+import routes from "../../config/routes";
+import { Link } from "react-router-dom";
 import CustomLogo from '../../components/custom-logo/custom-logo'
 const onFinish = (values) => {
   console.log('Success:', values);
@@ -80,17 +82,32 @@ const Login = () => {
                   placeholder="Nhập mật khẩu"
                 />
               </Form.Item>
+              <div className="flex-wrap">
+                <Form.Item
+                  name="remember"
+                  valuePropName="checked"
+                  wrapperCol={{
+                    // offset: 24,
+                    span: 24,
+                  }}
+                >
+                  <Checkbox>Ghi nhớ đăng nhập</Checkbox>
+                </Form.Item>
+                <Form.Item
+                  name="remember"
+                  valuePropName="checked"
+                  wrapperCol={{
+                    // offset: 24,
+                    span: 24,
+                  }}
+                >
+                  Bạn chưa có tài khoản, hãy
+                  <Link to={`${routes.register}`}> đăng ký ngay </Link>
 
-              <Form.Item
-                name="remember"
-                valuePropName="checked"
-                wrapperCol={{
-                  // offset: 24,
-                  span: 24,
-                }}
-              >
-                <Checkbox>Ghi nhớ đăng nhập</Checkbox>
-              </Form.Item>
+                </Form.Item>
+              </div>
+
+
 
               <Form.Item
                 wrapperCol={{
@@ -103,6 +120,7 @@ const Login = () => {
                 </Button>
               </Form.Item>
             </Form>
+
           </div>
         </div>
       </div>

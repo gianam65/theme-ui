@@ -6,6 +6,8 @@ import couchImage from "../../assets/images/couch.png";
 import iconFreeShipping from "../../assets/images/truck.svg";
 import iconEasyShopping from "../../assets/images/bag.svg";
 import iconSupport from "../../assets/images/support.svg";
+import { Link } from "react-router-dom";
+import routes from "../../config/routes";
 import iconReturn from "../../assets/images/return.svg";
 const HomePage = () => {
   return (
@@ -17,20 +19,14 @@ const HomePage = () => {
             <div className="col-lg-5">
               <div className="intro-excerpt">
                 <h1>
-                  Modern Interior <span className="d-block">Design Studio</span>
+                  Studio thiết kế nội thất hiện đại
+                  {/* Modern Interiosr <span className="d-block">Design Studio</span> */}
                 </h1>
                 <p className="mb-4">
-                  Donec vitae odio quis nisl dapibus malesuada. Nullam ac
-                  aliquet velit. Aliquam vulputate velit imperdiet dolor tempor
-                  tristique.
+                Với sự sáng tạo và kiến thức chuyên môn, chúng tôi đưa ra những giải pháp thiết kế độc đáo, phản ánh cá nhân và nhu cầu của mỗi khách hàng. Chúng tôi cam kết mang đến những trải nghiệm thiết kế tốt nhất và không ngừng tìm kiếm sự hoàn thiện trong mọi chi tiết.
                 </p>
                 <p>
-                  <a href="" className="btn btn-secondary me-2">
-                    Shop Now
-                  </a>
-                  <a href="#" className="btn btn-white-outline">
-                    Explore
-                  </a>
+                  <Link to={`${routes.products}`} className="btn btn-secondary me-2"> Mua hàng ngay </Link>
                 </p>
               </div>
             </div>
@@ -50,22 +46,19 @@ const HomePage = () => {
             {/* Start Column 1 */}
             <div className="col-md-12 col-lg-3 mb-5 mb-lg-0">
               <h2 className="mb-4 section-title">
-                Crafted with excellent material.
+                Được chế tác từ vật liệu tuyệt vời.
               </h2>
               <p className="mb-4">
-                Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
-                velit. Aliquam vulputate velit imperdiet dolor tempor tristique.{" "}
+              Chúng tôi tận dụng những vật liệu chất lượng cao để tạo ra các sản phẩm đẳng cấp, độc đáo và bền bỉ. Sự tinh tế trong việc lựa chọn vật liệu là điểm nhấn giúp sản phẩm của chúng tôi nổi bật và đáng tin cậy
               </p>
               <p>
-                <a href="shop.html" className="btn">
-                  Explore
-                </a>
+                <Link to={`${routes.products}`} className="btn btn-secondary me-2"> Khám phá ngay </Link>
               </p>
             </div>
             {/* End Column 1 */}
             {/* Start Column 2 */}
             <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="cart.html">
+              <Link to={`${routes.detail}/${1}`} className="product-item" href="cart.html">
                 <img
                   src={defaultImage}
                   className="img-fluid product-thumbnail"
@@ -75,7 +68,7 @@ const HomePage = () => {
                 <span className="icon-cross">
                   <img src={crossIcon} className="img-fluid" />
                 </span>
-              </a>
+              </Link>
             </div>
             {/* End Column 2 */}
             {/* Start Column 3 */}
@@ -117,10 +110,9 @@ const HomePage = () => {
         <div className="container">
           <div className="row justify-content-between">
             <div className="col-lg-6">
-              <h2 className="section-title">Why Choose Us</h2>
+              <h2 className="section-title">Tại sao nên chọn chúng tôi</h2>
               <p>
-                Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
-                velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
+              Với nhiều năm hoạt động trong ngành thiết kế nội thất, chúng tôi tự tin mang đến cho bạn sự tận tâm và chuyên nghiệp hàng đầu.
               </p>
               <div className="row my-5">
                 <div className="col-6 col-md-6">
@@ -132,10 +124,9 @@ const HomePage = () => {
                         className="imf-fluid"
                       />
                     </div>
-                    <h3>Fast &amp; Free Shipping</h3>
+                    <h3>Giao hàng nhanh &amp; tiết kiệm</h3>
                     <p>
-                      Donec vitae odio quis nisl dapibus malesuada. Nullam ac
-                      aliquet velit. Aliquam vulputate.
+                      Đảm bảo khách hàng nhận được sản phẩm nhanh chóng và đồng thời tiết kiệm chi phí vận chuyển.
                     </p>
                   </div>
                 </div>
@@ -148,10 +139,9 @@ const HomePage = () => {
                         className="imf-fluid"
                       />
                     </div>
-                    <h3>Easy to Shop</h3>
+                    <h3>Dễ để mua</h3>
                     <p>
-                      Donec vitae odio quis nisl dapibus malesuada. Nullam ac
-                      aliquet velit. Aliquam vulputate.
+                      Trải nghiệm mua sắm trơn tru và thuận tiện cho mọi người dùng, từ quá trình tìm kiếm đến thanh toán.
                     </p>
                   </div>
                 </div>
@@ -164,10 +154,9 @@ const HomePage = () => {
                         className="imf-fluid"
                       />
                     </div>
-                    <h3>24/7 Support</h3>
+                    <h3> Hỗ trợ 24/7 </h3>
                     <p>
-                      Donec vitae odio quis nisl dapibus malesuada. Nullam ac
-                      aliquet velit. Aliquam vulputate.
+                      Đội ngũ hỗ trợ luôn sẵn sàng giải đáp mọi thắc mắc và hỗ trợ khách hàng xuyên suốt mọi lúc, mọi nơi.
                     </p>
                   </div>
                 </div>
@@ -176,10 +165,9 @@ const HomePage = () => {
                     <div className="icon">
                       <img src={iconReturn} alt="Image" className="imf-fluid" />
                     </div>
-                    <h3>Hassle Free Returns</h3>
+                    <h3>Chính sách hoàn sản phẩm</h3>
                     <p>
-                      Donec vitae odio quis nisl dapibus malesuada. Nullam ac
-                      aliquet velit. Aliquam vulputate.
+                      Cam kết chính sách hoàn trả linh hoạt và công bằng để đảm bảo sự hài lòng của khách hàng khi mua sắm.
                     </p>
                   </div>
                 </div>
@@ -213,167 +201,22 @@ const HomePage = () => {
             </div>
             <div className="col-lg-5 ps-lg-5">
               <h2 className="section-title mb-4">
-                We Help You Make Modern Interior Design
+                Chúng tôi giúp bạn tạo ra các thiết kế nội thất hiện đại
               </h2>
               <p>
-                Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
-                quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam
-                vulputate velit imperdiet dolor tempor tristique. Pellentesque
-                habitant morbi tristique senectus et netus et malesuada
+                Chúng tôi giúp bạn thực hiện thiết kế nội thất hiện đại. Dưới sự chỉ dẫn của các chuyên gia, chúng tôi biến những ý tưởng thành hiện thực, tạo ra không gian sống độc đáo và tiện nghi, phản ánh phong cách và cá nhân hóa của bạn.
               </p>
-              <ul className="list-unstyled custom-list my-4">
-                <li>Donec vitae odio quis nisl dapibus malesuada</li>
-                <li>Donec vitae odio quis nisl dapibus malesuada</li>
-                <li>Donec vitae odio quis nisl dapibus malesuada</li>
-                <li>Donec vitae odio quis nisl dapibus malesuada</li>
+              <ul className="list-unstyled  my-4">
+                <li style={{ listStyle: 'disclosure-closed' }}>Sự tư vấn chuyên nghiệp</li>
+                <li style={{ listStyle: 'disclosure-closed' }}>Sự sáng tạo và tinh tế</li>
+                <li style={{ listStyle: 'disclosure-closed' }}>Sự đa dạng và linh hoạt</li>
+                <li style={{ listStyle: 'disclosure-closed' }}>Sử dụng vật liệu chất lượng</li>
+                <li style={{ listStyle: 'disclosure-closed' }}>Chăm sóc khách hàng</li>
               </ul>
-              <p>
-                <a href="#" className="btn">
-                  Explore
-                </a>
-              </p>
             </div>
           </div>
         </div>
       </div>
-      {/* End We Help Section */}
-      {/* Start Popular Product */}
-      <div className="popular-product">
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-              <div className="product-item-sm d-flex">
-                <div className="thumbnail">
-                  <img src={defaultImage} alt="Image" className="img-fluid" />
-                </div>
-                <div className="pt-3">
-                  <h3>Nordic Chair</h3>
-                  <p>
-                    Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                    odio{" "}
-                  </p>
-                  <p>
-                    <a href="#">Read More</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-              <div className="product-item-sm d-flex">
-                <div className="thumbnail">
-                  <img src={defaultImage} alt="Image" className="img-fluid" />
-                </div>
-                <div className="pt-3">
-                  <h3>Kruzo Aero Chair</h3>
-                  <p>
-                    Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                    odio{" "}
-                  </p>
-                  <p>
-                    <a href="#">Read More</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-              <div className="product-item-sm d-flex">
-                <div className="thumbnail">
-                  <img src={defaultImage} alt="Image" className="img-fluid" />
-                </div>
-                <div className="pt-3">
-                  <h3>Ergonomic Chair</h3>
-                  <p>
-                    Donec facilisis quam ut purus rutrum lobortis. Donec vitae
-                    odio{" "}
-                  </p>
-                  <p>
-                    <a href="#">Read More</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* End Popular Product */}
-      {/* Start Blog Section */}
-      {/* <div className="blog-section">
-      <div className="container">
-        <div className="row mb-5">
-          <div className="col-md-6">
-            <h2 className="section-title">Recent Blog</h2>
-          </div>
-          <div className="col-md-6 text-start text-md-end">
-            <a href="#" className="more">
-              View All Posts
-            </a>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-            <div className="post-entry">
-              <a href="#" className="post-thumbnail">
-                <img src="images/post-1.jpg" alt="Image" className="img-fluid" />
-              </a>
-              <div className="post-content-entry">
-                <h3>
-                  <a href="#">First Time Home Owner Ideas</a>
-                </h3>
-                <div className="meta">
-                  <span>
-                    by <a href="#">Kristin Watson</a>
-                  </span>{" "}
-                  <span>
-                    on <a href="#">Dec 19, 2021</a>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-            <div className="post-entry">
-              <a href="#" className="post-thumbnail">
-                <img src="images/post-2.jpg" alt="Image" className="img-fluid" />
-              </a>
-              <div className="post-content-entry">
-                <h3>
-                  <a href="#">How To Keep Your Furniture Clean</a>
-                </h3>
-                <div className="meta">
-                  <span>
-                    by <a href="#">Robert Fox</a>
-                  </span>{" "}
-                  <span>
-                    on <a href="#">Dec 15, 2021</a>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-            <div className="post-entry">
-              <a href="#" className="post-thumbnail">
-                <img src="images/post-3.jpg" alt="Image" className="img-fluid" />
-              </a>
-              <div className="post-content-entry">
-                <h3>
-                  <a href="#">Small Space Furniture Apartment Ideas</a>
-                </h3>
-                <div className="meta">
-                  <span>
-                    by <a href="#">Kristin Watson</a>
-                  </span>{" "}
-                  <span>
-                    on <a href="#">Dec 12, 2021</a>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> */}
-      {/* End Blog Section */}
     </>
   );
 };

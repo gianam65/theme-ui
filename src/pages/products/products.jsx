@@ -13,10 +13,11 @@ const ProductsPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       setLoading(true);
-      const response = await httpGet("/product/get");
+      // const response = await httpGet("/product/get");
       setLoading(false);
       setProducts(
-        response?.content || [
+        // response?.content ||
+         [
           {
             id: 1,
             product_name: "Nam Gia",
