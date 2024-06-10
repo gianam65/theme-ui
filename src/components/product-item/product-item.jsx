@@ -19,7 +19,6 @@ const ProductItem = ({
   const handleAddProductToCart = async (event) => {
     event.stopPropagation();
     event.preventDefault();
-
     const response = await httpPost("/api/cart/addToCart");
     if (response?.data) {
       notification.success({

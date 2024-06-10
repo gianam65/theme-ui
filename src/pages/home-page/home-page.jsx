@@ -2,7 +2,10 @@ import "./home-page.scss";
 import defaultImage from "../../assets/images/product-1.png";
 import crossIcon from "../../assets/images/cross.svg";
 import whychoseImage from "../../assets/images/why-choose-us-img.jpg";
-import couchImage from "../../assets/images/couch.png";
+import silkyImg from "../../assets/images/silky-img.jpg";
+import decor1 from "../../assets/images/decor-1.jpg";
+import decor2 from "../../assets/images/decor-2.jpg";
+import couchImage from "../../assets/images/shop-green.jpg";
 import iconFreeShipping from "../../assets/images/truck.svg";
 import iconEasyShopping from "../../assets/images/bag.svg";
 import iconSupport from "../../assets/images/support.svg";
@@ -189,13 +192,13 @@ const HomePage = () => {
             <div className="col-lg-7 mb-5 mb-lg-0">
               <div className="imgs-grid">
                 <div className="grid grid-1">
-                  <img src={defaultImage} alt="Untree.co" />
+                  <img src={silkyImg} alt="Untree.co" />
                 </div>
                 <div className="grid grid-2">
-                  <img src={defaultImage} alt="Untree.co" />
+                  <img src={decor1} alt="Untree.co" />
                 </div>
                 <div className="grid grid-3">
-                  <img src={defaultImage} alt="Untree.co" />
+                  <img src={decor2} alt="Untree.co" />
                 </div>
               </div>
             </div>

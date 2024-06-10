@@ -1,8 +1,10 @@
 .product-item > div .image {
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   background: #ffffff;
   overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .product-item > div .image .img {
   width: 100%;
@@ -14,6 +16,11 @@
   z-index: 1;
   background: #f6f8fb;
 }
+.product-item{
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
 .product-item > div .image .img img {
   position: absolute;
   top: 50%;
@@ -21,16 +28,20 @@
   overflow: hidden;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  max-width: 80%;
-  max-height: 80%;
+  max-width: unset;
+  width: 100%;
+  max-height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+}
+.box-content{
+  padding: 0 20px ;
 }
 .product-item > div .desc-box {
   width: 100%;
 }
 .product-item > div .desc-box .name_item {
-  font-size: 22px;
+  font-size: 18px;
   line-height: 140%;
   font-weight: 700;
   color: #000852;
@@ -41,7 +52,7 @@
   overflow: hidden;
 }
 .product-item > div .desc-box .cate_item {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 140%;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -52,11 +63,14 @@
 }
 .product-item > div .desc-box .box-price {
   width: 100%;
-  margin: 10px 0;
+  margin: 7px 0;
+  display: flex;
+    align-items: baseline;
+    gap: 10px;
 }
 .product-item > div .desc-box .box-price .price {
-  font-size: 21px;
-  line-height: 140%;
+  font-size: 25px;
+  line-height: 30px;
   color: #bf923d;
   font-weight: 600;
   margin-bottom: 6px;
@@ -81,4 +95,11 @@
   -ms-flex-align: center;
   align-items: center;
   cursor: pointer;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+}
+.product-item .cs-button:hover{
+  color: #ffffff !important;
+    background-color: #1677ff !important;
 }
