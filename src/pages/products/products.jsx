@@ -78,10 +78,11 @@ const ProductsPage = () => {
       </Flex>
       <div className="product_body">
         {products.length > 0 ? (
-          products.map((product) => (
-            <div className="box-list-product" key={`product__${product.id}`}>
-              <div className="flex-box">
+          <div className="box-list-product">
+            <div className="flex-box">
+              {products.map((product) => (
                 <ProductItem
+                  key={`product__${product.id}`}
                   slug="#"
                   name={product.product_name}
                   cate={product.product_description}
@@ -90,9 +91,9 @@ const ProductsPage = () => {
                   image_src={product.image_url}
                   {...product}
                 />
-              </div>
+              ))}
             </div>
-          ))
+          </div>
         ) : (
           <div className="flex items-center justify-center text-center">
             Không có dữ liệu

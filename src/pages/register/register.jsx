@@ -1,20 +1,45 @@
-import "./register.scss";
-import routes from "../../config/routes";
-import { Link } from "react-router-dom";  
-import CustomLogo from '../../components/custom-logo/custom-logo';
-import { Form, Input, Button, Checkbox } from "antd";
-import loginLogo from '../../assets/images/logo-theme.jpg';
-import { UserOutlined, LockOutlined ,AuditOutlined} from "@ant-design/icons";
-import loginLeftImage from '../../assets/images/login_left_img.jpg';
-const onFinish = (values) => {
-  console.log('Success:', values);
-};
+import "../login/login.scss";
 
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-};
+import { Form, Input, Button, notification } from "antd";
+import { UserOutlined, LockOutlined, AuditOutlined } from "@ant-design/icons";
+import loginLeftImage from "../../assets/images/login_left_img.jpg";
+import loginLogo from "../../assets/images/logo-theme.jpg";
+import CustomLogo from "../../components/custom-logo/custom-logo";
+import { httpPost } from "../../services/request";
+import { useNavigate, Link } from "react-router-dom";
+import routes from "../../config/routes";
 
 const RegisterPage = () => {
+  const navigate = useNavigate();
+
+  const onFinish = async (values) => {
+    try {
+      const response = await httpPost("/account/register", {
+        ...values,
+        accountType: "USER",
+      });
+
+      if (response?.data) {
+        notification.success({
+          message:
+            "Đăng ký thành công, bạn sẽ chuyển đến trang đăng nhập sau 2 giây",
+        });
+        setTimeout(() => {
+          navigate("/dang-nhap");
+        }, 2000);
+      } else {
+        notification.error({
+          message: "Có lỗi xảy ra. Vui lòng thử lại sau!",
+        });
+      }
+    } catch (error) {
+      console.log("error :>> ", error);
+    }
+  };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
   return (
     <div className="login__container">
       <div className="login__box">
@@ -33,9 +58,6 @@ const RegisterPage = () => {
           <div className="form">
             <Form
               name="basic"
-              labelCol={{
-                // span: 4,
-              }}
               wrapperCol={{
                 span: 24,
               }}
@@ -50,22 +72,24 @@ const RegisterPage = () => {
               autoComplete="off"
             >
               <Form.Item
-                // label="Username"
                 name="username"
                 className="cs-form-input"
                 rules={[
                   {
                     required: true,
-                    message: 'Vui lòng nhập tên tài khoản của bạn!',
+                    message: "Vui lòng nhập tên tài khoản của bạn!",
                   },
                 ]}
               >
                 <Input
-                  prefix={<UserOutlined style={{ fontSize: '23px', color: '#1890ff' }} />}
+                  prefix={
+                    <UserOutlined
+                      style={{ fontSize: "23px", color: "#1890ff" }}
+                    />
+                  }
                   placeholder="Nhập tên tài khoản"
                 />
               </Form.Item>
-
 
               <Form.Item
                 // label="Username"
@@ -74,12 +98,16 @@ const RegisterPage = () => {
                 rules={[
                   {
                     required: true,
-                    message: 'Vui lòng nhập email của bạn!',
+                    message: "Vui lòng nhập email của bạn!",
                   },
                 ]}
               >
                 <Input
-                  prefix={<AuditOutlined style={{ fontSize: '23px', color: '#1890ff' }} />}
+                  prefix={
+                    <AuditOutlined
+                      style={{ fontSize: "23px", color: "#1890ff" }}
+                    />
+                  }
                   placeholder="Nhập email"
                 />
               </Form.Item>
@@ -91,12 +119,16 @@ const RegisterPage = () => {
                 rules={[
                   {
                     required: true,
-                    message: 'Vui lòng nhập mật khẩu của bạn!',
-                  }
+                    message: "Vui lòng nhập mật khẩu của bạn!",
+                  },
                 ]}
               >
                 <Input.Password
-                  prefix={<LockOutlined style={{ fontSize: '23px', color: '#1890ff' }} />}
+                  prefix={
+                    <LockOutlined
+                      style={{ fontSize: "23px", color: "#1890ff" }}
+                    />
+                  }
                   placeholder="Nhập mật khẩu"
                 />
               </Form.Item>
@@ -108,20 +140,24 @@ const RegisterPage = () => {
                 rules={[
                   {
                     required: true,
-                    message: 'Vui lòng nhập lại mật khẩu của bạn!',
+                    message: "Vui lòng nhập lại mật khẩu của bạn!",
                   },
                   ({ getFieldValue }) => ({
                     validator(_, value) {
-                      if (!value || getFieldValue('password') === value) {
+                      if (!value || getFieldValue("password") === value) {
                         return Promise.resolve();
                       }
-                      return Promise.reject(new Error('Mật khẩu không khớp!'));
+                      return Promise.reject(new Error("Mật khẩu không khớp!"));
                     },
                   }),
                 ]}
               >
                 <Input.Password
-                  prefix={<LockOutlined style={{ fontSize: '23px', color: '#1890ff' }} />}
+                  prefix={
+                    <LockOutlined
+                      style={{ fontSize: "23px", color: "#1890ff" }}
+                    />
+                  }
                   placeholder="Nhập lại mật khẩu"
                 />
               </Form.Item>
@@ -135,8 +171,8 @@ const RegisterPage = () => {
                 }}
               >
                 <div className="link-to-login">
-                <span>Bạn đã có tài khoản, xin vui lòng</span> 
-                <Link to={`${routes.login}`}> đăng nhập </Link>
+                  <span>Bạn đã có tài khoản, xin vui lòng</span>
+                  <Link to={`${routes.login}`}> đăng nhập </Link>
                 </div>
               </Form.Item>
 
@@ -151,7 +187,6 @@ const RegisterPage = () => {
                 </Button>
               </Form.Item>
             </Form>
-            
           </div>
         </div>
       </div>

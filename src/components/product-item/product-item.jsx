@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 import "./product-item.scss";
-import defaultImage from "../../assets/images/product-item.png";
+import defaultImage from "../../assets/images/default_product.jpg";
 import cartIcon from "../../assets/images/cart.svg";
 import { formatCurrency } from "../../utils/utils";
 import { Link } from "react-router-dom";
 import routes from "../../config/routes";
+import { httpPost } from "../../services/request";
+import { notification } from "antd";
 
 const ProductItem = ({
   name,
@@ -14,14 +16,25 @@ const ProductItem = ({
   image_src,
   id,
 }) => {
-  const defaultIamgeSrc = image_src ? ` ${image_src}` : defaultImage;
+  const handleAddProductToCart = async (event) => {
+    event.stopPropagation();
+    event.preventDefault();
 
+    const response = await httpPost("/api/cart/addToCart");
+    if (response?.data) {
+      notification.success({
+        message: "Thêm sản phẩm vào giỏ hàng thành công!",
+      });
+    } else {
+      notification.error({ message: "Có lỗi xảy ra, vui lòng thử lại sau!" });
+    }
+  };
   return (
     <Link to={`${routes.detail}/${id}`} className="product-item">
       <div>
         <div className="image">
           <div className="img">
-            <img src={defaultIamgeSrc} alt="" />
+            <img src={image_src || defaultImage} alt="" />
           </div>
         </div>
         <div className="desc-box">
@@ -35,10 +48,10 @@ const ProductItem = ({
               </div>
             </div>
           </div>
-          <button className="cs-button">
+          <div className="cs-button" onClick={(e) => handleAddProductToCart(e)}>
             <img src={cartIcon} />
             <span>Thêm vào giỏ hàng</span>
-          </button>
+          </div>
         </div>
       </div>
     </Link>

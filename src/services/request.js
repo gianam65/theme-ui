@@ -13,7 +13,7 @@ const httpGet = async (url, params = {}) => {
     return response.data;
   } catch (error) {
     console.error("GET Error:", error);
-    throw error;
+    return error;
   }
 };
 
@@ -23,7 +23,7 @@ const httpPost = async (url, data = {}) => {
     return response.data;
   } catch (error) {
     console.error("POST Error:", error);
-    throw error;
+    return error;
   }
 };
 
@@ -33,7 +33,7 @@ const httpPut = async (url, data = {}) => {
     return response.data;
   } catch (error) {
     console.error("PUT Error:", error);
-    throw error;
+    return error;
   }
 };
 
@@ -43,7 +43,7 @@ const httpDelete = async (url) => {
     return response.data;
   } catch (error) {
     console.error("DELETE Error:", error);
-    throw error;
+    return error;
   }
 };
 

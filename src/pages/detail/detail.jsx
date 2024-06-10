@@ -14,6 +14,10 @@ import DetailQuantity from "./quantity";
 import ShoppingBtns from "./shopping-btns";
 import Ratings from "./rating";
 import RatingItems from "./rating-item";
+import { useEffect } from "react";
+import { httpGet } from "../../services/request";
+import { useParams } from "react-router-dom";
+
 const CustomPrevArrow = (props) => {
   const { onClick } = props;
   return (
@@ -34,6 +38,7 @@ const CustomNextArrow = (props) => {
 
 const DetailPage = () => {
   const images = [Image1, Image2, Image3, Image4];
+  const { id } = useParams();
   const flexValue = `calc(100% / 7)`;
   const settings = {
     customPaging: function (i) {
@@ -52,6 +57,14 @@ const DetailPage = () => {
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await httpGet(`/view-detail/${id}`);
+      console.log("response :>> ", response);
+    };
+    fetchData();
+  }, [id]);
 
   return (
     <div id="product__detail">

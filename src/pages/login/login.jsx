@@ -1,22 +1,37 @@
 import "./login.scss";
 
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button, Checkbox, notification } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import loginLeftImage from '../../assets/images/login_left_img.jpg'
-import loginLogo from '../../assets/images/logo-theme.jpg'
-import loginBackground from '../../assets/images/login-bg.png'
+import loginLeftImage from "../../assets/images/login_left_img.jpg";
+import loginLogo from "../../assets/images/logo-theme.jpg";
+import CustomLogo from "../../components/custom-logo/custom-logo";
+import { httpPost } from "../../services/request";
+import { useNavigate, Link } from "react-router-dom";
+import { userTokenState } from "../../recoil/store/app";
+import { useSetRecoilState } from "recoil";
 import routes from "../../config/routes";
-import { Link } from "react-router-dom";
-import CustomLogo from '../../components/custom-logo/custom-logo'
-const onFinish = (values) => {
-  console.log('Success:', values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-};
+
 const Login = () => {
+  const navigate = useNavigate();
+  const setToken = useSetRecoilState(userTokenState);
+
+  const onFinish = async (values) => {
+    const response = await httpPost("/account/login", {
+      ...values,
+    });
+    if (response?.data) {
+      navigate("/");
+      setToken(response?.data?.token);
+    } else {
+      notification.error({ message: "Có lỗi xảy ra, vui lòng thử lại sau!" });
+    }
+  };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
   return (
-    <div className="login__container" >
+    <div className="login__container">
       <div className="login__box">
         <div className="left__login">
           <img src={loginLeftImage} alt="" />
@@ -33,9 +48,6 @@ const Login = () => {
           <div className="form">
             <Form
               name="basic"
-              labelCol={{
-                // span: 4,
-              }}
               wrapperCol={{
                 span: 24,
               }}
@@ -50,35 +62,41 @@ const Login = () => {
               autoComplete="off"
             >
               <Form.Item
-                // label="Username"
                 name="username"
                 className="cs-form-input"
                 rules={[
                   {
                     required: true,
-                    message: 'Vui lòng nhập tên tài khoản của bạn!',
+                    message: "Vui lòng nhập tên tài khoản!",
                   },
                 ]}
               >
                 <Input
-                  prefix={<UserOutlined style={{ fontSize: '23px', color: '#1890ff' }} />}
+                  prefix={
+                    <UserOutlined
+                      style={{ fontSize: "23px", color: "#1890ff" }}
+                    />
+                  }
                   placeholder="Nhập tên tài khoản"
                 />
               </Form.Item>
 
               <Form.Item
-                // label="Password" 
                 name="password"
                 className="cs-form-input"
                 rules={[
                   {
                     required: true,
-                    message: 'Vui lòng nhập mật khẩu của bạn!',
-                  }
+                    message: "Vui lòng nhập mật khẩu của bạn!",
+                  },
                 ]}
               >
                 <Input.Password
-                  prefix={<LockOutlined style={{ fontSize: '23px', color: '#1890ff' }} />}
+                  prefix={
+                    <LockOutlined
+                      style={{ fontSize: "23px", color: "#1890ff" }}
+                    />
+                  }
                   placeholder="Nhập mật khẩu"
                 />
               </Form.Item>
@@ -103,11 +121,8 @@ const Login = () => {
                 >
                   Bạn chưa có tài khoản, hãy
                   <Link to={`${routes.register}`}> đăng ký ngay </Link>
-
                 </Form.Item>
               </div>
-
-
 
               <Form.Item
                 wrapperCol={{
@@ -120,11 +135,10 @@ const Login = () => {
                 </Button>
               </Form.Item>
             </Form>
-
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
