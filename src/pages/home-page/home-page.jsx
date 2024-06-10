@@ -1,7 +1,7 @@
 import "./home-page.scss";
-import defaultImage from "../../assets/images/product-1.png";
+import defaultImage from "../../assets/images/ramen.jpg";
 import crossIcon from "../../assets/images/cross.svg";
-import whychoseImage from "../../assets/images/why-choose-us-img.jpg";
+import whychoseImage from "../../assets/images/restaurant.jpg";
 import couchImage from "../../assets/images/couch.png";
 import iconFreeShipping from "../../assets/images/truck.svg";
 import iconEasyShopping from "../../assets/images/bag.svg";
